@@ -79,6 +79,20 @@ function test_input($data) {
 
 ?>
 
+<?php
+       
+       $myfile = fopen("open.txt", "a");
+       fwrite($myfile, $fname);
+       fwrite($myfile, $lname);
+       fwrite($myfile, $email);
+       fwrite($myfile, $gender);
+       fwrite($myfile, $uname);
+       fwrite($myfile, $password );
+       fwrite($myfile, $remail);
+       fclose($myfile);
+
+     ?>
+
 <h2>PHP Form Validation Example</h2>
 <p><span class="error">* required field</span></p>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
@@ -102,7 +116,7 @@ function test_input($data) {
   <input type="radio" name="gender" value="other">Other
   <span class="error">* <?php echo $genderErr;?></span>
   <br><br>
-  <input type="submit" name="submit" value="Submit">  
+ 
 </form>
 </fieldset>
 
@@ -200,10 +214,13 @@ myInput.onkeyup = function() {
 Recovery Email Address: <input type="text" name="remail">
   <span class="error">* <?php echo $remailErr;?></span>
 <br>
- <input type="submit" name="submit" value="Submit">  
+   
      
 
 </fieldset>
+
+<input type="submit" name="submit" value="Submit"> 
+
 <?php
 echo "<h2>Basic information:</h2>";
 echo "Name:". $fname .$lname;
@@ -214,6 +231,10 @@ echo "<br>";
 echo "Recovered-Email". $remail;
 echo "<br>";
 echo "Gender:" .$gender;
+
+echo "<h2>Basic information:</h2>";
+echo "Recovered-Email". $remail;
+echo "<br>";
 ?>
 
 </body>
